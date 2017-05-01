@@ -1,6 +1,6 @@
 {
-    "name": "imi/robo-magerun",
-    "description": "N98-magerun Tasks for Robo task runner",
+    "name": "imi/robo-run",
+    "description": "N98-magerun & IMI-Conrun Tasks for Robo task runner",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "iMi\\RoboMagerun\\" : "src"
+            "iMi\\RoboRun\\" : "src"
         }
     },
     "require": {

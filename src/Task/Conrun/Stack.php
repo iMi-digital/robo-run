@@ -1,14 +1,14 @@
 <?php
-namespace iMi\RoboRun\Task\Magerun;
+namespace iMi\RoboRun\Task\Conrun;
 
 use Robo\Task\CommandStack;
 
 /**
- * Runs Magerun commands in stack. You can use `stopOnFail()` to point that stack should be terminated on first fail.
+ * Runs Conrun commands in stack. You can use `stopOnFail()` to point that stack should be terminated on first fail.
  *
  * ``` php
  * <?php
- * $this->taskMagerunStack()
+ * $this->taskConrunStack()
  *  ->stopOnFail()
  *  ->exec('db:import master.sql')
  *  ->cacheFlush()
@@ -20,23 +20,23 @@ use Robo\Task\CommandStack;
 class Stack extends CommandStack
 {
 	/**
-	 * @param null|string $pathToMagerun
+	 * @param null|string $pathToConrun
 	 *
 	 * @throws \Robo\Exception\TaskException
 	 */
-	public function __construct($pathToMagerun = null)
+	public function __construct($pathToConrun = null)
 	{
-		$this->executable = $pathToMagerun;
+		$this->executable = $pathToConrun;
 		if (!$this->executable) {
-			$this->executable = $this->findExecutablePhar('n98-magerun');
+			$this->executable = $this->findExecutablePhar('imi-conrun');
 		}
 		if (!$this->executable) {
-			throw new TaskException(__CLASS__, "Neither local n98-magerun.phar nor global n98-magerun installation could be found.");
+			throw new TaskException(__CLASS__, "Neither local imi-conrun.phar nor global imi-conrun installation could be found.");
 		}
 	}
 
     /**
-     * Executes `git clone`
+     * Executes `cache:flush`
      *
      * @param string $repo
      * @param string $to
@@ -53,7 +53,7 @@ class Stack extends CommandStack
      */
     public function run()
     {
-        $this->printTaskInfo("Running Magerun commands...");
+        $this->printTaskInfo("Running Conrun commands...");
         return parent::run();
     }
 }

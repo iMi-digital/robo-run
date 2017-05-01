@@ -1,5 +1,5 @@
 <?php
-namespace iMi\RoboMagerun\Task\Magerun;
+namespace iMi\RoboRun\Task\Magerun;
 
 trait loadTasks
 {
