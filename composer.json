@@ -1,0 +1,19 @@
+{
+    "name": "imi/robo-magerun",
+    "description": "N98-magerun Tasks for Robo task runner",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "iMi digital GmbH",
+            "email": "a.menk@imi.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "iMi\\RoboMagerun\\" : "src"
+        }
+    },
+    "require": {
+        "consolidation/robo": "^1.0.0"
+    }
+}
