@@ -12,4 +12,9 @@ trait loadTasks
     {
         return $this->task(Stack::class, $pathToMagerun);
     }
+
+    protected function taskMagerunTwoExecWithResult($pathToMagerun= 'n98-magerun2')
+    {
+        return $this->task(ExecWithResult::class, $pathToMagerun);
+    }
 }
