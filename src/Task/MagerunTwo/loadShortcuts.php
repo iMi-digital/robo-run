@@ -10,6 +10,6 @@ trait loadShortcuts
      */
     protected function _magerunTwo($action)
     {
-        return $this->taskMagerunTwo()->exec($action)->run();
+        return $this->taskMagerunTwoStack()->exec($action)->run();
     }
 }
