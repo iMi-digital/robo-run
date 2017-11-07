@@ -31,7 +31,7 @@ class ExecWithResult extends Stack
 	 */
 	public function getCurrentBaseUrl()
 	{
-		$configData = $this->execAndGetJson("config:get --scope-id=0 --scope=default -- 'web/unsecure/base_url'");
+		$configData = $this->execAndGetJson("config:store:get --scope-id=0 --scope=default -- 'web/unsecure/base_url'");
 		return (string) $configData->{0}->Value;
 	}
 }
