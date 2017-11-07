@@ -34,4 +34,20 @@ class ExecWithResult extends Stack
 		$configData = $this->execAndGetJson("config:store:get --scope-id=0 --scope=default -- 'web/unsecure/base_url'");
 		return (string) $configData->{0}->Value;
 	}
+
+	/**
+	 * Get the current deploy mode
+	 * @return string
+	 */
+	public function getCurrentDeployMode()
+	{
+		$modeResult = implode(PHP_EOL, $this->execAndGetResult("deploy:mode:show"));
+        $matched = preg_match('/mode: ([a-z]+)/mi', $modeResult, $matches);
+
+		if (!$matched) {
+		    return false;
+        }
+
+		return strtolower($matches[1]);
+	}
 }
