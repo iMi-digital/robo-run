@@ -53,7 +53,16 @@ class Stack extends CommandStack
      */
     public function run()
     {
-        $this->printTaskInfo("Running Magerun2 commands...");
+        $this->printTaskInfo("Running Magerun2 commands as script...");
+        $script = '';
+        foreach ($this->exec as $command) {
+            $script .= $this->stripExecutableFromCommand($command) . PHP_EOL;
+        }
+
+        $this->exec = [
+            'echo ' . escapeshellarg($script) . ' | ' . $this->executable . ' script'
+        ];
+
         return parent::run();
     }
 }
