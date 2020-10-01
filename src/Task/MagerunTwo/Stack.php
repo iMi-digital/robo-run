@@ -53,6 +53,10 @@ class Stack extends CommandStack
      */
     public function run()
     {
+        if (count($this->exec) == 1) {
+            return parent::run();
+        }
+
         $this->printTaskInfo("Running Magerun2 commands as script...");
         $script = '';
         foreach ($this->exec as $command) {
@@ -60,7 +64,7 @@ class Stack extends CommandStack
         }
 
         $this->exec = [
-            'echo ' . escapeshellarg($script) . ' | ' . $this->executable . ' script'
+            'echo ' . escapeshellarg($script) . ' | ' . $this->executable . ' script --stop-on-error'
         ];
 
         return parent::run();
