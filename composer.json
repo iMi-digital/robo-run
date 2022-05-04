@@ -12,8 +12,5 @@
         "psr-4": {
             "iMi\\RoboRun\\" : "src"
         }
-    },
-    "require": {
-        "consolidation/robo": "^1.0.0"
     }
 }
